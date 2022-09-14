@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        h1{
+            color: white;
+        }
+        .header{
+            padding: 10px;
+            text-align: center;
+            background: #04AA6D;
+            color: white;
+            font-size: 30px;
+        }
+        .navbar {
+            background-color: #04AA6D;
+            overflow: hidden;
+            padding: 5px
+        }
+        
+        .navbar a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .navbar a:hover {
+            background-color: #1abc9c;
+        }
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+        .box .content{
+            width: 900px;
+            height: 150px;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 5px;
+            margin: 5px;
+            flex-direction: column;
+            border-style: solid;
+            border-color: #04AA6D;
+            border-width: 3px;
+            border-radius: 5px;
+        }
+        .box .content button {
+            width: 100px;
+        }
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar a {
+            flex-wrap: wrap;
+            padding: 5px;
+            margin: 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Belajar Mebuat Layout dengan HTML</h1>
+    </div>
+    <br>
+    <div class="navbar">
+        <a href="default.asp">Home</a>
+        <a href="default.asp">Home</a>
+        <a href="default.asp">Home</a>
+        <a href="default.asp">Home</a>
+    </div>
+    <br>
+    <div class="container">
+        <div class="box">
+            <div class="content">
+                <h2>Lorem Ipsum</h2>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate...
+                <br>
+                <button>Read More...</button>
+            </div>
+            <div class="content">
+                <h2>Lorem Ipsum</h2>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate...
+                <br>
+                <button>Read More...</button>
+            </div>
+        </div>
+        <div class="side">
+            <h3>Category</h3>
+            <div class="sidebar">
+                <a href="">HTML</a>
+                <a href="">CSS</a>
+                <a href="">BOOTSTRAP</a>
+                <a href="">PHP</a>
+                <a href="">JQUERY</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

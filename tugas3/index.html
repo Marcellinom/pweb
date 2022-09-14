@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('keypress', (e) => {
+            if (e.key === "Enter") create()
+        })
+        function create() {
+            let pwd = document.getElementById("password")
+            let pwd2 = document.getElementById("confirm_password")
+            let email = document.getElementById('email')
+            let name = document.getElementById('name')
+
+            if (!name.value) {
+                alert("nama harus diisi!")
+                return
+            }
+            if (!email.value) {
+                alert("email harus diisi!")
+                return
+            }
+            if (!pwd.value) {
+                alert("password harus diisi!")
+                return
+            }
+            if (!pwd2.value) {
+                alert("konfirmasi password harus diisi!")
+                return
+            }
+
+            if (pwd.value != pwd2.value) {
+                alert("konfirmasi password tidak sesuai")
+                return
+            }
+            if (pwd.value.length <= 6) {
+                alert("panjang password harus lebih dari 6")
+                return
+            }
+            if (!(/[a-z]/i.test(name.value))) {
+                alert("nama hanya boleh memakai huruf")
+                return
+            }
+            document.forms['form'].submit()
+        }
+    </script>
+</head>
+<body>
+    <form id="form">
+        <input type="text" placeholder="Name" id="name" onkeydown="return /[a-z]/i.test(event.key)">
+        <br>
+        <input type="email" placeholder="Email" id="email">
+        <br>
+        <input type="password" placeholder="Password" id="password">
+        <br>
+        <input type="password" placeholder="Confirm Password" id="confirm_password">
+        <br>
+        <button type="button" onclick="create() ">Create</button>
+    </form>
+</body>
+</html>
