@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencarian Kode Pos</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        var isTyping, loading;
+        $(document).ready(function() {
+            $('#query').on('input', () => {
+                $('#loading').hide()
+                clearTimeout(loading)
+                clearTimeout(isTyping)
+                isTyping = setTimeout(() => {
+                    getData($('#query').val())
+                }, 1000);
+                loading = setTimeout(() => {
+                    if ($('#query').val() !== '') {
+                        $('#loading').show()
+                        clearTimeout(loading)
+                    }
+                }, 500);
+            })
+        });
+        function getData(query) {
+            $('.results').empty()
+            if (query === '') return
+            $.ajax({
+                url: `https://kodepos.vercel.app/search/?q=${query}`,
+                dataType: 'json'
+            }).done((data) => {
+                if (data.status) {
+                    data.data.forEach(res => {
+                        $('.results').append(`<div>${res.province}, ${res.city}, ${res.subdistrict}, ${res.urban}, ${res.postalcode}</div>`)
+                    })
+                } else {
+                    $('.results').append('not found')
+                }
+                $('#loading').hide()
+            })
+        }
+    </script>
+</head>
+<body>
+    <input id="query" type="text" autocomplete="off"><label id="loading" style="display: none;"> loading</label>
+    <div class="results"></div>
+</body>
+</html>
