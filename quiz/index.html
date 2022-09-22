@@ -4,74 +4,102 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .page {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-            justify-content: center;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .row {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            width: 100%;
-        }
-        .col {
-            display: flex;
-            flex-direction: column;
-            flex-basis: 100%;
-            flex: 1;
-        }
-    </style>
+    <title>Form Pendaftaran Pasian Baru</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.js"></script>
+    <script>
+        $(document).ready(() => {
+            const input = $('.isi-form').children().find(':input')
+            $('#post-form').submit((e) => {
+                for (let i = 0; i < input.length; i++) {
+                    if (!input[i] || !input[i].value || (input[i].className == 'radio-input' && !input[3].checked)) {
+                        alert(`${input[i].id} harus diisi!`)
+                        e.preventDefault()
+                        return
+                    }
+                }
+            })
+        })
+
+    </script>
 </head>
 <body>
+    <h1>PEMERINTAH KABUPATEN SOLOK</h1>
+        <h2>RUMAH SAKIT UMUM DAERAH AROSUKA</h2>
+        <p><i>Jl. Raya Solok Padang KM. 20 Arosuka kode Pos 27364</i></p>
+        <p><i>Propinsi Sumatra Barat Telp. / Fax (0755) 31160</i></p>
+        <p><i>Email : rsudarosukakabsolok@gmail.com</i></p>
+        <h3><b><hr></b></h3>
+        <h4> FORMULIR PENDAFTARAN PASIEN BARU </h4>
+        <h5><u>PERHATIAN : HARAP MENGISI FORMULIR INI DENGAN LENGKAP DAN JELAS</u></h5>
+<form action="index.html" id="post-form" method="post">
     <div class="page">
-        <div class="container">
-            <b>I. IDENTITAS PASIEN</b>
-            <div class="col">
-                <div class="row">Nama Pasien</div>
-                <div class="row">Tempat Lahir</div>
-                <div class="row">Tanggal Lahir</div>
-                <div class="row">Jenis Kelamin</div>
-                <div class="row">Alamat</div>
-                <div class="row">Provinsi</div>
-                <div class="row">Kecamatan</div>
-                <div class="row">Kelurahan / Desa</div>
-                <div class="row">No. Telp</div>
-                <div class="row">Kode Pos</div>
-                <div class="row">Agama</div>
-                <div class="row">Pendidikan Terakhir</div>
-                <div class="row">Pekerjaan</div>
+        <div class="section">
+            <div class="item identitas">
+                <b>I. IDENTITAS PASIEN</b>
             </div>
-            <div class="col">
-                <div class="row"><input type="text"></div>
-                <div class="row"><input type="text"></div>
-                <div class="row"><input type="text"></div>
-                <div class="row"><input type="text"></div>
-                <div class="row"><input type="text"></div>
-                <div class="row"><input type="text"></div>
-                <div class="row"><input type="text"></div>
-                <div class="row"><input type="text"></div>
-                <div class="row"><input type="text"></div>
-                <div class="row"><input type="text"></div>
-                <div class="row"><input type="text"></div>
+            <div class="container">
+                <div class="col">
+                    <div class="row">Nama Pasien</div>
+                    <div class="row">Tempat Lahir</div>
+                    <div class="row">Tanggal Lahir</div>
+                    <div class="row">Jenis Kelamin</div>
+                    <div class="row">Alamat</div>
+                    <div class="row">Provinsi</div>
+                    <div class="row">Kecamatan</div>
+                    <div class="row">Kelurahan / Desa</div>
+                    <div class="row">No. Telp</div>
+                    <div class="row">Kode Pos</div>
+                    <div class="row">Agama</div>
+                    <div class="row">Pendidikan Terakhir</div>
+                    <div class="row">Pekerjaan</div>
+                </div>
+                <div class="col isi-form">
+                    <div class="row"><input id="Nama" class="dottedLines" type="text"></div>
+                    <div class="row"><input id="Tempat Lahir" class="dottedLines" type="text"></div>
+                    <div class="row"><input id="Tanggal Lahir" class="dottedLines" type="date"></div>
+                    <div class="row">
+                        <label for="Laki-Laki">Laki-Laki</label>
+                        <input id="Jenis-Kelamin" class="radio-input" name="Jenis-Kelamin" type="radio">
+                        <label for="Perempuan">Perempuan</label>
+                        <input id="Jenis-Kelamin" class="radio-input" name="Jenis-Kelamin" type="radio">
+                    </div>
+                    <div class="row"><input id="Alamat" class="dottedLines" type="text"></div>
+                    <div class="row"><input id="Provinsi" class="dottedLines" type="text"></div>
+                    <div class="row"><input id="Kecamatan" class="dottedLines" type="text"></div>
+                    <div class="row"><input id="Kelurahan" class="dottedLines" type="text"></div>
+                    <div class="row"><input id="No Telp" class="dottedLines" type="number"></div>
+                    <div class="row"><input id="Kode" class="dottedLines" type="text"></div>
+                    <div class="row"><input id="Agama" class="dottedLines" type="text"></div>
+                    <div class="row"><input id="Pendidikan" class="dottedLines" type="text"></div>
+                    <div class="row"><input id="Pekerjaan" class="dottedLines" type="text"></div>
+                </div>
             </div>
         </div>
-        <div class="container">
-            <b>II. PENANGGUNG JAWAB PASIEN</b>
-            <div class="col">
-                <div class="row">tes</div>
+        <div class="section">
+            <div class="item">
+                <b>II. PENANGGUNG JAWAB PASIEN</b>
             </div>
-            <div class="col">
-                <div class="ro"><input type="text"></div>
+            <div class="container">
+                <div class="col">
+                    <div class="row">Hubungan Dengan Pasien</div>
+                    <div class="row">Nama Penanggung Jawab</div>
+                    <div class="row">Pendidikan Penanggung Jawab</div>
+                    <div class="row">Pekerjaan Penanggung Jawab</div>
+                </div>
+                <div class="col">
+                    <div class="row"><input class="dottedLines"type="text"></div>
+                    <div class="row"><input class="dottedLines"type="text"></div>
+                    <div class="row"><input class="dottedLines"type="text"></div>
+                    <div class="row"><input class="dottedLines"type="text"></div>
+                </div>
             </div>
         </div>
     </div>
+    <br>
+    <div class="btn">
+        <button type="submit" style="height: 50px; width: 150px;">Submit</button>
+    </div>
+</form>
 </body>
 </html>
